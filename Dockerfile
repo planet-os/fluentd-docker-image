@@ -36,6 +36,9 @@ RUN echo "gem: --user-install --no-document" >> ~/.gemrc
 ENV PATH /home/fluent/.gem/ruby/2.3.0/bin:$PATH
 ENV GEM_PATH /home/fluent/.gem/ruby/2.3.0:$GEM_PATH
 
+# Install required plugins
+RUN fluent-gem install fluent-plugin-elasticsearch
+
 COPY fluent.conf /fluentd/etc/
 
 ENV FLUENTD_OPT=""
